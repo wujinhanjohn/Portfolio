@@ -1,0 +1,44 @@
+/* ── Base typography ──────────────────────────────── */
+html {
+  font-family: var(--font-body);
+  font-size: 100%;
+  line-height: var(--leading-body);
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* clears the fixed navbar on anchor jumps */
+}
+
+body {
+  background-color: var(--c-bg);
+  color: var(--c-ink);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Display serif for true headings only */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* Smaller headings stay in the body face */
+h4,
+h5,
+h6 {
+  font-family: var(--font-body);
+  font-weight: 500;
+  line-height: var(--leading-tight);
+}
+
+p {
+  max-width: 70ch;
+}
+
+::selection {
+  background: var(--c-accent);
+  color: var(--c-bg);
+}

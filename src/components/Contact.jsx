@@ -1,41 +1,42 @@
+const socials = [
+  { label: 'GitHub · WuJinhan1', href: 'https://github.com/WuJinhan1' },
+  { label: 'GitHub · wujinhanjohn', href: 'https://github.com/wujinhanjohn' },
+]
+
 function Contact() {
   return (
-    <section id="contact" className="section-padding">
+    <section id="contact" className="section">
       <div className="container">
-        <div className="text-center contact-inner">
-          <h2 className="section-title mx-auto d-inline-block" data-aos="fade-up">
-            Get In Touch
-          </h2>
-          <p
-            className="contact-subtitle mt-4"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            Open to opportunities, collaborations, and interesting conversations.
+        <div className="section-head reveal">
+          <p className="section-head__label">Contact</p>
+        </div>
+
+        <div className="reveal">
+          <p className="contact__lead">
+            I&apos;m looking for full-time software engineering roles in backend,
+            distributed systems, and real-time infrastructure, starting 2026.
           </p>
-          <div
-            className="d-flex flex-wrap gap-3 justify-content-center mt-4"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <a href="mailto:wujinhanjohn@gmail.com" className="btn btn-cyan-glow btn-lg">
-              wujinhanjohn@gmail.com
-            </a>
-            <a
-              href="https://github.com/WuJinhan1"
-              className="btn btn-outline-cyan btn-lg"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub: WuJinhan1
-            </a>
+
+          <a className="contact__email" href="mailto:wujinhanjohn@gmail.com">
+            wujinhanjohn@gmail.com
+          </a>
+
+          <div className="contact__socials">
+            {socials.map((social) => (
+              <a
+                className="contact__social"
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={social.href}
+              >
+                {social.label}
+              </a>
+            ))}
           </div>
-          <p
-            className="contact-note mt-5"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            Currently writing a research paper on AI-generated music &amp; copyright law (SSCI)
+
+          <p className="contact__note">
+            Currently writing an SSCI paper on AI-generated music &amp; copyright law.
           </p>
         </div>
       </div>

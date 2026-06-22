@@ -17,7 +17,7 @@ const experiences = [
     location: 'Remote (Minneapolis–Saint Paul, MN)',
     bullets: [
       'Led full-cycle development and deployment of MyEdututor\'s core MVP on a scalable tech stack — from architecture decisions to launch — serving an initial cohort of 80–100 students and shortening time-to-market by 30%.',
-      'Improved mobile engagement from 2 to 5 sessions per user per week by implementing mobile-first layouts and responsive Tailwind CSS components.',
+      'Improved mobile engagement from 2 to 5 sessions per user per week by implementing mobile-first layouts and responsive UI components.',
       'Built and integrated 15+ reusable React components with associated state workflows, cutting front-end iteration time by 40% and standardizing UI patterns across 3+ core pages.',
     ],
   },
@@ -36,40 +36,29 @@ const experiences = [
 
 function Experience() {
   return (
-    <section id="experience" className="section-padding bg-dark-alt">
+    <section id="experience" className="section">
       <div className="container">
-        <h2 className="section-title" data-aos="fade-up">
-          Experience
-        </h2>
-        <div className="timeline">
-          {experiences.map((exp, i) => (
-            <div
-              key={i}
-              className="timeline-item"
-              data-aos="fade-up"
-              data-aos-delay={i * 120}
-            >
-              <div className="timeline-dot"></div>
-              <div className="card timeline-card">
-                <div className="card-body p-4">
-                  <div className="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3">
-                    <div>
-                      <h5 className="timeline-role">{exp.title}</h5>
-                      <h6 className="timeline-company">{exp.company}</h6>
-                    </div>
-                    <div className="text-end flex-shrink-0">
-                      <span className="badge cyan-badge mb-1 d-block">{exp.period}</span>
-                      <small className="timeline-location">{exp.location}</small>
-                    </div>
-                  </div>
-                  <ul className="timeline-bullets mb-0">
-                    {exp.bullets.map((bullet, j) => (
-                      <li key={j}>{bullet}</li>
-                    ))}
-                  </ul>
-                </div>
+        <div className="section-head reveal">
+          <p className="section-head__label">Experience</p>
+        </div>
+
+        <div className="exp">
+          {experiences.map((exp) => (
+            <article className="exp__item reveal" key={exp.company}>
+              <div className="exp__meta">
+                <p className="exp__period">{exp.period}</p>
+                <p className="exp__company">{exp.company}</p>
+                <p className="exp__location">{exp.location}</p>
               </div>
-            </div>
+              <div className="exp__main">
+                <h3 className="exp__role">{exp.title}</h3>
+                <ul className="exp__bullets">
+                  {exp.bullets.map((bullet, j) => (
+                    <li key={j}>{bullet}</li>
+                  ))}
+                </ul>
+              </div>
+            </article>
           ))}
         </div>
       </div>

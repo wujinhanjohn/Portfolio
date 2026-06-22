@@ -1,0 +1,42 @@
+/* ===================================================
+   DESIGN TOKENS — single source of truth
+   Never hardcode colours, fonts, or spacing inline.
+   =================================================== */
+:root {
+  /* ── Palette ─────────────────────────────────── */
+  --c-bg:        #F2F0EB; /* warm off-white base */
+  --c-ink:       #111110; /* near-black text */
+  --c-mid:       #6B6B67; /* secondary text */
+  --c-rule:      #D8D5CE; /* dividers and borders */
+  --c-accent:    #2D5B8E; /* cool navy, used sparingly */
+  --c-accent-lt: #EBF1F8; /* accent tint for hover states */
+
+  /* ── Typography ──────────────────────────────── */
+  --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-mono:    'Space Mono', 'Courier New', monospace;
+
+  /* Type scale */
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.375rem;
+  --text-2xl:  1.75rem;
+  --text-3xl:  2.25rem;
+  --text-4xl:  3rem;
+  --text-5xl:  4rem;
+
+  /* Tracking & leading */
+  --tracking-tight: -0.025em;
+  --tracking-wide:  0.08em;
+  --leading-tight:  1.15;
+  --leading-body:   1.65;
+
+  /* ── Layout ──────────────────────────────────── */
+  --container-max: 1120px;
+  --gutter:        clamp(1.5rem, 5vw, 3rem);
+  --section-gap:   clamp(5rem, 10vw, 8rem);
+  --radius-sm:     4px;
+  --radius-md:     8px;
+}
