@@ -34,10 +34,6 @@ function Contact() {
               </a>
             ))}
           </div>
-
-          <p className="contact__note">
-            Currently writing an SSCI paper on AI-generated music &amp; copyright law.
-          </p>
         </div>
       </div>
     </section>

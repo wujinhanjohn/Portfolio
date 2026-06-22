@@ -5,8 +5,8 @@ const experiences = [
     period: 'Jan 2025 – Jun 2025',
     location: 'Singapore',
     bullets: [
-      'Led design and implementation of a high-performance WPF MVVM application in C#, automating NAND silicon validation workflows and cutting waveform loading latency by 80% through architectural decisions around data access and rendering.',
-      'Replaced a $1,000-per-license external dependency by engineering an in-house waveform visualization platform — full ownership from design through production deployment.',
+      'Led the design and implementation of a high-performance WPF MVVM application in C#, automating NAND silicon validation processes and reducing waveform loading latency by 80%, significantly accelerating testing cycles.',
+      'Developed an in-house waveform visualization platform, resulting in cost savings of $1,000 per license by eliminating reliance on external software solutions and streamlining internal workflows.',
       'Built scalable automation pipelines in Python with HDF5.net to process large waveform datasets, reducing manual data handling time by 10 seconds per cycle and improving overall analysis throughput.',
     ],
   },
@@ -16,8 +16,8 @@ const experiences = [
     period: 'May 2024 – Aug 2024',
     location: 'Remote (Minneapolis–Saint Paul, MN)',
     bullets: [
-      'Led full-cycle development and deployment of MyEdututor\'s core MVP on a scalable tech stack — from architecture decisions to launch — serving an initial cohort of 80–100 students and shortening time-to-market by 30%.',
-      'Improved mobile engagement from 2 to 5 sessions per user per week by implementing mobile-first layouts and responsive UI components.',
+      "Designed and deployed the full-stack MVP, using REST API design, MongoDB, and CI/CD pipeline, launching to an initial cohort of 80–100 students and shortening time-to-market by 30%.",
+      'Improved mobile engagement (sessions per user) from 2 to 5 times per week by implementing mobile-first layouts and responsive Tailwind CSS components.',
       'Built and integrated 15+ reusable React components with associated state workflows, cutting front-end iteration time by 40% and standardizing UI patterns across 3+ core pages.',
     ],
   },

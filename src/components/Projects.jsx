@@ -9,7 +9,7 @@ const projects = [
   },
   {
     name: 'AI Copyright & Music — SSCI Paper',
-    period: 'Dec 2025 – Present',
+    period: 'Dec 2025 – Mar 2025',
     description:
       'A research paper arguing that statistical music models are tools, not authors, so copyright should track human creative control. Analyzes autoregressive and diffusion architectures and proposes a "sufficient creative control" test for AI-assisted music.',
     tech: ['Academic Research', 'ML Architecture Analysis'],
@@ -18,10 +18,10 @@ const projects = [
   },
   {
     name: 'Chess Eval',
-    period: 'Jun 2026',
+    period: 'Jun 2026 - Jun 2026',
     description:
-      'A chess position evaluator that scores arbitrary board states to estimate which side is ahead. Written in Python on top of classic engine evaluation techniques.',
-    tech: ['Python', 'Chess Engine', 'Evaluation'],
+      'A Python wrapper around the Stockfish engine that analyzes my games and annotates each move with evaluations and feedback to highlight mistakes and improvements.',
+    tech: ['Python', 'Stockfish', 'Game Analysis'],
     github: 'https://github.com/wujinhanjohn/Chess_eval',
   },
   {

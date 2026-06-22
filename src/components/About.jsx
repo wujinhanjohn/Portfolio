@@ -17,9 +17,7 @@ function About() {
           <div className="about__body reveal">
             <p>
               I&apos;m a Computer Science student at the NUS School of Computing
-              with a Minor in Statistics. I work on backend performance,
-              distributed systems, and real-time infrastructure — the kind of
-              work where Redis, WebSockets, and CRDTs decide whether it holds up.
+              with a Minor in Statistics with a strong interest in backend and real‑time systems.
             </p>
             <p>
               At Micron, I shipped production tooling that automated NAND silicon
@@ -31,11 +29,10 @@ function About() {
               to market 30% faster.
             </p>
             <p>
-              Beyond industry work, I&apos;ve engineered microservices platforms
-              for 10,000+ concurrent users and real-time collaboration layers
-              built on WebSockets, Yjs CRDTs, and Redis pub/sub. Right now
-              I&apos;m writing an SSCI paper on AI-generated music and copyright
-              law.
+              Beyond industry work, I&apos;ve built systems like Peerprep, 
+              a microservices‑based interview practice platform with real‑time 
+              code collaboration using WebSockets, Yjs CRDTs, Redis, and Server 
+              sent events, which supported thousands of concurrent users with high uptime. 
             </p>
           </div>
 
