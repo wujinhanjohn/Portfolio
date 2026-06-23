@@ -5,10 +5,10 @@ const socials = [
 
 function Contact() {
   return (
-    <section id="contact" className="section">
+    <section id="contact" className="section" aria-labelledby="contact-label">
       <div className="container">
         <div className="section-head reveal">
-          <p className="section-head__label">Contact</p>
+          <h2 id="contact-label" className="section-head__label">Contact</h2>
         </div>
 
         <div className="reveal">

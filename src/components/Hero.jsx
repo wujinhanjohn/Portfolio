@@ -1,11 +1,11 @@
 function Hero() {
   return (
-    <section id="hero" className="hero">
+    <section id="hero" className="hero" aria-labelledby="hero-name">
       <div className="container hero__inner">
         <p className="hero__eyebrow reveal">
           Software Engineer · Distributed Systems
         </p>
-        <h1 className="hero__name reveal">Wu Jinhan</h1>
+        <h1 id="hero-name" className="hero__name reveal">Wu Jinhan</h1>
         <p className="hero__subtext reveal">
           I build backend and real-time systems — microservices for 10,000+
           concurrent users, collaborative editors on WebSockets and CRDTs, and

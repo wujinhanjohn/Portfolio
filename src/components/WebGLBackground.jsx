@@ -123,6 +123,8 @@ function WebGLBackground() {
     gl.clearColor(0.949, 0.941, 0.922, 1) // #F2F0EB, matches page bg pre-load
 
     const canvas = gl.canvas
+    canvas.setAttribute('aria-hidden', 'true')
+    canvas.setAttribute('role', 'presentation')
     canvas.style.cssText =
       'position:absolute;inset:0;width:100%;height:100%;display:block;'
     container.appendChild(canvas)
@@ -196,7 +198,7 @@ function WebGLBackground() {
     const preloadedLinks = new Set()
     const addPreloadLink = (index) => {
       const item = SECTION_IMAGES[index]
-      if (!item || preloadedLinks.has(item.src)) return
+      if (!item || !item.src || preloadedLinks.has(item.src)) return
       preloadedLinks.add(item.src)
       const link = document.createElement('link')
       link.rel = 'preload'
@@ -208,6 +210,8 @@ function WebGLBackground() {
     const ensureLoaded = (index) => {
       if (index < 0 || index >= SECTION_IMAGES.length || started[index]) return
       started[index] = true
+      // No-picture section: leave the solid background placeholder in place.
+      if (!SECTION_IMAGES[index].src) return
       const img = new Image()
       img.decoding = 'async'
       img.src = SECTION_IMAGES[index].src
@@ -256,16 +260,23 @@ function WebGLBackground() {
     window.addEventListener('resize', onResize)
 
     // ── ScrollTrigger: one trigger per section boundary ────────────────
+    // Crossfade as the next section rises from the bottom of the viewport and
+    // finish by the time its top docks at the viewport top — so each section's
+    // image is fully resolved once you're at the start of that section. The
+    // final boundary ends at 'bottom bottom' (the page can't scroll the last
+    // section's top to the very top), guaranteeing the last image fully loads.
+    const lastIndex = SECTION_IMAGES.length - 1
     const triggers = []
-    for (let i = 0; i < SECTION_IMAGES.length - 1; i += 1) {
+    for (let i = 0; i < lastIndex; i += 1) {
       const nextSection = document.getElementById(SECTION_IMAGES[i + 1].id)
       if (!nextSection) continue
+      const isFinalBoundary = i + 1 === lastIndex
 
       triggers.push(
         ScrollTrigger.create({
           trigger: nextSection,
-          start: 'top center',
-          end: 'bottom center',
+          start: 'top bottom',
+          end: isFinalBoundary ? 'bottom bottom' : 'top top',
           scrub: true,
           onUpdate: (self) => {
             let p = self.progress

@@ -36,10 +36,10 @@ const experiences = [
 
 function Experience() {
   return (
-    <section id="experience" className="section">
+    <section id="experience" className="section" aria-labelledby="experience-label">
       <div className="container">
         <div className="section-head reveal">
-          <p className="section-head__label">Experience</p>
+          <h2 id="experience-label" className="section-head__label">Experience</h2>
         </div>
 
         <div className="exp">

@@ -7,10 +7,10 @@ const facts = [
 
 function About() {
   return (
-    <section id="about" className="section">
+    <section id="about" className="section" aria-labelledby="about-label">
       <div className="container">
         <div className="section-head reveal">
-          <p className="section-head__label">About</p>
+          <h2 id="about-label" className="section-head__label">About</h2>
         </div>
 
         <div className="about-grid">

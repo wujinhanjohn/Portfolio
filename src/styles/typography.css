@@ -3,8 +3,6 @@ html {
   font-family: var(--font-body);
   font-size: 100%;
   line-height: var(--leading-body);
-  scroll-behavior: smooth;
-  scroll-padding-top: 5rem; /* clears the fixed navbar on anchor jumps */
 }
 
 body {

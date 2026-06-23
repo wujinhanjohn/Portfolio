@@ -11,133 +11,162 @@
   overflow: hidden;
 }
 
-#bg-layer img {
+#bg-layer img,
+#bg-layer .bg-blank {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
   will-change: opacity, transform;
 }
 
-/* ── Navbar ───────────────────────────────────────── */
-.navbar {
+#bg-layer img {
+  object-fit: cover;
+}
+
+/* No-picture section: plain page background to crossfade to */
+#bg-layer .bg-blank {
+  background: var(--c-bg);
+}
+
+/* Dimming veil — mutes the photos so they sit behind the type and keeps
+   the dark text readable. Raise the opacity to fade them further back. */
+#bg-layer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--c-bg);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ── Logo (fixed, top-left) ───────────────────────── */
+.logo {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 2rem;
+  left: 2rem;
   z-index: 100;
-  background: rgba(242, 240, 235, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s ease;
-}
-
-.navbar.is-scrolled {
-  border-bottom-color: var(--c-rule);
-}
-
-.navbar__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 4.5rem;
-}
-
-.navbar__logo {
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: var(--text-lg);
-  letter-spacing: var(--tracking-wide);
+  pointer-events: auto;
+  display: inline-flex;
+  /* padding + negative margin = ≥44px tap target, mark stays at 2rem/2rem */
+  padding: 0.5rem;
+  margin: -0.5rem;
   color: var(--c-ink);
+  transition: color 0.2s ease;
 }
 
-.navbar__links {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.navbar__link {
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: var(--text-sm);
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-wide);
-  color: var(--c-ink);
-  padding-block: 0.25rem;
-  border-bottom: 2px solid transparent;
-  transition: color 0.2s ease, border-color 0.2s ease;
-}
-
-.navbar__link:hover {
+.logo:hover {
   color: var(--c-accent);
 }
 
-.navbar__link.is-active {
-  border-bottom-color: var(--c-accent);
-}
-
-/* Mobile toggle — three bars, no icon library */
-.navbar__toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  width: 44px;
-  height: 44px;
-}
-
-.navbar__toggle span {
+.logo__mark {
   display: block;
-  width: 22px;
-  height: 2px;
-  margin-inline: auto;
+  width: 28px;
+  height: 28px;
+}
+
+/* ── Dot navigation (fixed, right-centre) ─────────── */
+.dot-nav {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  pointer-events: auto;
+}
+
+.dot-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-end;
+}
+
+.dot-nav a {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid var(--c-mid);
+  background: transparent;
+  flex-shrink: 0;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.dot-nav li.is-active .dot {
   background: var(--c-ink);
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  border-color: var(--c-ink);
+  transform: scale(1.35);
 }
 
-.navbar__toggle.is-open span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+.dot-nav a:hover .dot {
+  border-color: var(--c-ink);
 }
-.navbar__toggle.is-open span:nth-child(2) {
+
+/* Label slides out to the LEFT of the dot (nav is on the right). row-reverse
+   keeps the dot on the right and the label growing outward to the left. */
+.dot-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--c-ink);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  white-space: nowrap;
   opacity: 0;
-}
-.navbar__toggle.is-open span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+  transform: translateX(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
 }
 
-@media (max-width: 767px) {
-  .navbar__toggle {
-    display: flex;
+.dot-nav a:hover .dot-label,
+.dot-nav a:focus-visible .dot-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 640px) {
+  .dot-nav {
+    right: auto;
+    top: auto;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem;
   }
-  .navbar__links {
-    position: fixed;
-    inset: 4.5rem 0 auto 0;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    padding: 0.5rem var(--gutter) 1.5rem;
-    background: rgba(242, 240, 235, 0.98);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--c-rule);
-    transform: translateY(-130%);
-    visibility: hidden;
-    transition: transform 0.35s ease, visibility 0.35s ease;
+  .dot-nav ul {
+    flex-direction: row;
+    align-items: center;
+    gap: 1.25rem;
   }
-  .navbar__links.is-open {
-    transform: translateY(0);
-    visibility: visible;
+  .dot-nav a {
+    /* roomier touch target around each dot, no visual shift */
+    padding: 0.5rem;
+    margin: -0.5rem;
   }
-  .navbar__link {
-    width: 100%;
-    padding-block: 0.9rem;
-    border-bottom: 1px solid var(--c-rule);
+  .dot-label {
+    display: none;
   }
-  .navbar__link.is-active {
-    color: var(--c-accent);
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot,
+  .dot-label {
+    transition: none;
   }
 }
 
@@ -150,7 +179,7 @@
 }
 
 .hero__inner {
-  padding-block: 8rem 4rem;
+  padding-block: 4rem;
 }
 
 .hero__eyebrow {
@@ -180,6 +209,7 @@
 
 /* ── Underline link (hero CTA, generic) ───────────── */
 .link-underline {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -191,6 +221,17 @@
   padding-bottom: 2px;
   border-bottom: 1px solid var(--c-ink);
   transition: color 0.2s ease, border-color 0.2s ease, gap 0.2s ease;
+}
+
+/* Invisible 44px tap target without altering the visual box */
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: max(100%, 44px);
 }
 
 .link-underline:hover {
@@ -457,6 +498,7 @@
 }
 
 .contact__social {
+  position: relative;
   font-family: var(--font-mono);
   font-size: var(--text-sm);
   text-transform: uppercase;
@@ -465,6 +507,17 @@
   padding-bottom: 2px;
   border-bottom: 1px solid var(--c-rule);
   transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Invisible 44px tap target without altering the visual box */
+.contact__social::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: max(100%, 44px);
 }
 
 .contact__social:hover {

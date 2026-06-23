@@ -1,8 +1,11 @@
 // ─────────────────────────────────────────────────────────────────────────
 // SECTION IMAGE CONFIG
-// Drop real images in public/images/sections/ and update `src` here.
-// Naming convention: NN-sectionname.jpg (section order matches page order).
-// Changing an image = replace the file and (if renamed) update src below.
+// Images live in public/images/sections/. To change one, replace the file and
+// (if the filename differs) update its `src` below. Order matches page order.
+//
+// Set `src: null` for a section that should have NO background picture — the
+// layer fades to the plain page background for it (used to alternate
+// picture / no-picture between sections).
 //
 // `id` must match the corresponding <section id="…"> in the page.
 // ─────────────────────────────────────────────────────────────────────────
@@ -24,10 +27,10 @@ export const BG_CONFIG = {
 }
 
 export const SECTION_IMAGES = [
-  { id: 'hero', src: '/images/sections/01-hero.jpg', alt: 'Hero section background' },
-  { id: 'about', src: '/images/sections/02-about.jpg', alt: 'About section background' },
-  { id: 'experience', src: '/images/sections/03-experience.jpg', alt: 'Experience section background' },
-  { id: 'work', src: '/images/sections/04-work.jpg', alt: 'Work section background' },
-  { id: 'skills', src: '/images/sections/05-skills.jpg', alt: 'Skills section background' },
-  { id: 'contact', src: '/images/sections/06-contact.jpg', alt: 'Contact section background' },
+  { id: 'hero', label: 'Home', src: '/images/sections/hero.jpg', alt: 'Hero section background' },
+  { id: 'about', label: 'About', src: '/images/sections/about.jpg', alt: 'About section background' },
+  { id: 'experience', label: 'Experience', src: null, alt: '' },
+  { id: 'work', label: 'Work', src: null, alt: '' },
+  { id: 'skills', label: 'Skills', src: null, alt: '' },
+  { id: 'contact', label: 'Contact', src: null, alt: '' },
 ]

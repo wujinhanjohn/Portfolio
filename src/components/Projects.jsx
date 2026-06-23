@@ -46,10 +46,10 @@ const projects = [
 
 function Projects() {
   return (
-    <section id="work" className="section">
+    <section id="work" className="section" aria-labelledby="work-label">
       <div className="container">
         <div className="section-head reveal">
-          <p className="section-head__label">Work</p>
+          <h2 id="work-label" className="section-head__label">Work</h2>
         </div>
 
         <div className="work">

@@ -36,7 +36,7 @@ function CrossfadeBackground() {
     const preloaded = new Set()
     const preload = (index) => {
       const item = SECTION_IMAGES[index]
-      if (!item || preloaded.has(item.src)) return
+      if (!item || !item.src || preloaded.has(item.src)) return
       preloaded.add(item.src)
       const link = document.createElement('link')
       link.rel = 'preload'
@@ -79,18 +79,22 @@ function CrossfadeBackground() {
       setActive(progress >= 0.5 ? toIndex : fromIndex)
     }
 
-    // One trigger per section boundary (N-1 for N sections). Each watches the
-    // *next* section travel through the viewport centre.
+    // One trigger per section boundary (N-1 for N sections). Each crossfade
+    // completes as the next section docks at the viewport top, so the image is
+    // fully shown at the start of that section. The final boundary ends at
+    // 'bottom bottom' so the last image fully resolves at the page bottom.
+    const lastIndex = SECTION_IMAGES.length - 1
     const triggers = []
-    for (let i = 0; i < SECTION_IMAGES.length - 1; i += 1) {
+    for (let i = 0; i < lastIndex; i += 1) {
       const nextSection = document.getElementById(SECTION_IMAGES[i + 1].id)
       if (!nextSection) continue
+      const isFinalBoundary = i + 1 === lastIndex
 
       triggers.push(
         ScrollTrigger.create({
           trigger: nextSection,
-          start: 'top center',
-          end: 'bottom center',
+          start: 'top bottom',
+          end: isFinalBoundary ? 'bottom bottom' : 'top top',
           scrub: true,
           onUpdate: (self) => applyTransition(i, i + 1, self.progress),
         })
@@ -116,24 +120,34 @@ function CrossfadeBackground() {
 
   return (
     <div id="bg-layer" aria-hidden="true">
-      {SECTION_IMAGES.map((section, i) => (
-        <img
-          key={section.id}
-          ref={(el) => {
-            imgsRef.current[i] = el
-          }}
-          src={section.src}
-          alt=""
-          loading={i === 0 ? 'eager' : 'lazy'}
-          fetchPriority={i === 0 ? 'high' : 'low'}
-          decoding="async"
-          draggable="false"
-          style={{
-            opacity: i === 0 ? 1 : 0,
-            transform: i === 0 ? 'scale(1)' : 'scale(1.05)',
-          }}
-        />
-      ))}
+      {SECTION_IMAGES.map((section, i) => {
+        const style = {
+          opacity: i === 0 ? 1 : 0,
+          transform: i === 0 ? 'scale(1)' : 'scale(1.05)',
+        }
+        const setRef = (el) => {
+          imgsRef.current[i] = el
+        }
+        // No-picture section: a plain background-coloured layer to fade to.
+        if (!section.src) {
+          return (
+            <div key={section.id} ref={setRef} className="bg-blank" style={style} />
+          )
+        }
+        return (
+          <img
+            key={section.id}
+            ref={setRef}
+            src={section.src}
+            alt=""
+            loading={i === 0 ? 'eager' : 'lazy'}
+            fetchPriority={i === 0 ? 'high' : 'low'}
+            decoding="async"
+            draggable="false"
+            style={style}
+          />
+        )
+      })}
     </div>
   )
 }

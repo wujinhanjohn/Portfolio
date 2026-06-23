@@ -5,8 +5,8 @@
 :root {
   /* ── Palette ─────────────────────────────────── */
   --c-bg:        #F2F0EB; /* warm off-white base */
-  --c-ink:       #111110; /* near-black text */
-  --c-mid:       #6B6B67; /* secondary text */
+  --c-ink:       #000000; /* black — primary text */
+  --c-mid:       #3E3E3A; /* dark grey — secondary text */
   --c-rule:      #D8D5CE; /* dividers and borders */
   --c-accent:    #2D5B8E; /* cool navy, used sparingly */
   --c-accent-lt: #EBF1F8; /* accent tint for hover states */
@@ -23,9 +23,9 @@
   --text-lg:   1.125rem;
   --text-xl:   1.375rem;
   --text-2xl:  1.75rem;
-  --text-3xl:  2.25rem;
-  --text-4xl:  3rem;
-  --text-5xl:  4rem;
+  --text-3xl:  clamp(1.75rem, 5vw, 2.25rem);
+  --text-4xl:  clamp(2rem, 6vw, 3rem);
+  --text-5xl:  clamp(2.5rem, 8vw, 4rem);
 
   /* Tracking & leading */
   --tracking-tight: -0.025em;

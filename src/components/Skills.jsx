@@ -19,10 +19,10 @@ const skillCategories = [
 
 function Skills() {
   return (
-    <section id="skills" className="section">
+    <section id="skills" className="section" aria-labelledby="skills-label">
       <div className="container">
         <div className="section-head reveal">
-          <p className="section-head__label">Skills</p>
+          <h2 id="skills-label" className="section-head__label">Skills</h2>
         </div>
 
         <dl className="skills-dl reveal">
