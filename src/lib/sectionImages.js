@@ -3,7 +3,7 @@
 // Images live in public/images/sections/. To change one, replace the file and
 // (if the filename differs) update its `src` below. Order matches page order.
 //
-// Set `src: null` for a section that should have NO background picture — the
+// Set `src: null` for a section that should have NO background picture - the
 // layer fades to the plain page background for it (used to alternate
 // picture / no-picture between sections).
 //

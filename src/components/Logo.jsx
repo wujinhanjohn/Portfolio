@@ -1,11 +1,11 @@
 /**
- * Fixed top-left brand mark — a small network-node glyph. Links back to the
+ * Fixed top-left brand mark - a small network-node glyph. Links back to the
  * top of the page. Sits over whatever the WebGL background shows through;
  * no background, border, or shadow of its own.
  */
 function Logo() {
   return (
-    <a className="logo" href="#hero" aria-label="Wu Jinhan — home">
+    <a className="logo" href="#hero" aria-label="Wu Jinhan, home">
       <svg
         className="logo__mark"
         width="28"

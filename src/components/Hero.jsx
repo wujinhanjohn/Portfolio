@@ -7,7 +7,7 @@ function Hero() {
         </p>
         <h1 id="hero-name" className="hero__name reveal">Wu Jinhan</h1>
         <p className="hero__subtext reveal">
-          I build backend and real-time systems — microservices for 10,000+
+          I build backend and real-time systems: microservices for 10,000+
           concurrent users, collaborative editors on WebSockets and CRDTs, and
           NAND silicon-validation tooling at Micron. Computer Science at NUS.
         </p>

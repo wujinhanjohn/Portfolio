@@ -72,11 +72,11 @@ const fragment = /* glsl */ `
 /**
  * The ONE image-to-image transition function. Swap this for a different
  * effect without touching anything else. It drives the morph purely through
- * uniforms — no gsap on the uniform, since ScrollTrigger scrub is already
+ * uniforms - no gsap on the uniform, since ScrollTrigger scrub is already
  * smooth. The component's render loop draws the result.
  *
  * @param {import('ogl').Renderer} renderer  OGL renderer (effect contract; an
- *   effect may need it for render targets — this displacement effect doesn't).
+ *   effect may need it for render targets - this displacement effect doesn't).
  * @param {import('ogl').Program} program    the shared shader program
  * @param {import('ogl').Texture} fromTexture outgoing image texture
  * @param {import('ogl').Texture} toTexture   incoming image texture
@@ -261,7 +261,7 @@ function WebGLBackground() {
 
     // ── ScrollTrigger: one trigger per section boundary ────────────────
     // Crossfade as the next section rises from the bottom of the viewport and
-    // finish by the time its top docks at the viewport top — so each section's
+    // finish by the time its top docks at the viewport top - so each section's
     // image is fully resolved once you're at the start of that section. The
     // final boundary ends at 'bottom bottom' (the page can't scroll the last
     // section's top to the very top), guaranteeing the last image fully loads.

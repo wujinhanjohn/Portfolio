@@ -21,7 +21,7 @@ function About() {
             </p>
             <p>
               At Micron, I shipped production tooling that automated NAND silicon
-              validation — cutting waveform loading latency by 80% and
+              validation, cutting waveform loading latency by 80% and
               eliminating a $1,000-per-license external dependency with an
               in-house platform I designed and deployed end-to-end. At MyEdututor,
               I led full-cycle development of the core MVP, from architecture

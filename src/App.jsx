@@ -42,7 +42,7 @@ function App() {
       <footer className="footer">
         <div className="container">
           <p className="footer__text">
-            Wu Jinhan &copy; {new Date().getFullYear()} — Designed &amp; built by hand
+            Wu Jinhan &copy; {new Date().getFullYear()}. Designed &amp; built by hand.
           </p>
         </div>
       </footer>

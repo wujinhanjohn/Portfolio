@@ -1,5 +1,5 @@
 /* ===================================================
-   COMPONENTS — hand-written, no framework
+   COMPONENTS - hand-written, no framework
    =================================================== */
 
 /* ── Background layer (CrossfadeBackground) ───────── */
@@ -29,7 +29,7 @@
   background: var(--c-bg);
 }
 
-/* Dimming veil — mutes the photos so they sit behind the type and keeps
+/* Dimming veil - mutes the photos so they sit behind the type and keeps
    the dark text readable. Raise the opacity to fade them further back. */
 #bg-layer::after {
   content: '';
@@ -423,7 +423,7 @@
   color: var(--c-accent);
 }
 
-/* Text-only tag — no fill, no pill */
+/* Text-only tag - no fill, no pill */
 .tag {
   font-family: var(--font-mono);
   font-size: var(--text-xs);

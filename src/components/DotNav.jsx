@@ -3,7 +3,7 @@ import { SECTION_IMAGES } from '../lib/sectionImages'
 
 /**
  * Fixed vertical dot navigation on the right edge. One dot per section, read
- * from SECTION_IMAGES (the single source of truth) — adding a section only
+ * from SECTION_IMAGES (the single source of truth) - adding a section only
  * requires editing the config. The dot for the most-visible section is marked
  * active via an IntersectionObserver; labels slide out on hover/focus.
  */
