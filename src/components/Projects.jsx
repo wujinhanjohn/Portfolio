@@ -1,7 +1,15 @@
 const projects = [
   {
+    name: 'Pong World Model',
+    period: 'Jun 2026 - Present',
+    description:
+      'A world model of Atari Pong: an action-conditioned next-frame predictor trained on gameplay, used to study a failure mode in how these models are trained.',
+    tech: ['Python', 'World Models', 'Deep Learning'],
+    github: 'https://github.com/wujinhanjohn/pong-world-model',
+  },
+  {
     name: 'Earnings Vol Trader',
-    period: 'Jun 2026 -  Present',
+    period: 'Jun 2026 - Present',
     description:
       'A semi-automated earnings-volatility options system for Interactive Brokers. It screens tickers through three gates, constructs an at-the-money calendar spread for those that pass, runs risk checks, and submits to a paper account only after explicit typed approval, with reduce-only, limit-only automated exits.',
     tech: ['Python', 'IBKR API', 'Options'],
